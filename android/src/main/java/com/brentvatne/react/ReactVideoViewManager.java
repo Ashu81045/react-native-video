@@ -21,7 +21,7 @@ public class ReactVideoViewManager extends SimpleViewManager<ReactVideoView> {
     public static final String PROP_SRC = "src";
     public static final String PROP_SRC_URI = "uri";
     public static final String PROP_SRC_TYPE = "type";
-    public static final String PROP_SRC_HEADERS = "requestHeaders";
+   // public static final String PROP_SRC_HEADERS = "requestHeaders";
     public static final String PROP_SRC_IS_NETWORK = "isNetwork";
     public static final String PROP_SRC_MAINVER = "mainVer";
     public static final String PROP_SRC_PATCHVER = "patchVer";
@@ -30,7 +30,6 @@ public class ReactVideoViewManager extends SimpleViewManager<ReactVideoView> {
     public static final String PROP_REPEAT = "repeat";
     public static final String PROP_PAUSED = "paused";
     public static final String PROP_MUTED = "muted";
-    public static final String PROP_PREVENTS_DISPLAY_SLEEP_DURING_VIDEO_PLAYBACK = "preventsDisplaySleepDuringVideoPlayback";
     public static final String PROP_VOLUME = "volume";
     public static final String PROP_STEREO_PAN = "stereoPan";
     public static final String PROP_PROGRESS_UPDATE_INTERVAL = "progressUpdateInterval";
@@ -89,7 +88,6 @@ public class ReactVideoViewManager extends SimpleViewManager<ReactVideoView> {
                     src.getString(PROP_SRC_TYPE),
                     src.getBoolean(PROP_SRC_IS_NETWORK),
                     src.getBoolean(PROP_SRC_IS_ASSET),
-                    src.getMap(PROP_SRC_HEADERS),
                     mainVer,
                     patchVer
             );
@@ -99,15 +97,9 @@ public class ReactVideoViewManager extends SimpleViewManager<ReactVideoView> {
                     src.getString(PROP_SRC_URI),
                     src.getString(PROP_SRC_TYPE),
                     src.getBoolean(PROP_SRC_IS_NETWORK),
-                    src.getBoolean(PROP_SRC_IS_ASSET),
-                    src.getMap(PROP_SRC_HEADERS)
+                    src.getBoolean(PROP_SRC_IS_ASSET)
                     );
         }
-    }
-
-    @ReactProp(name = PROP_PREVENTS_DISPLAY_SLEEP_DURING_VIDEO_PLAYBACK)
-    public void setPropPreventsDisplaySleepDuringVideoPlayback(final ReactVideoView videoView, final boolean doPreventSleep) {
-        videoView.setPreventsDisplaySleepDuringVideoPlaybackModifier(doPreventSleep);
     }
 
     @ReactProp(name = PROP_RESIZE_MODE)
